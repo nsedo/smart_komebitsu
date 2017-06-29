@@ -20,6 +20,8 @@ rootCAPath = "rootCA.pem"
 certificatePath = "RaspberryPi3.cert.pem"
 privateKeyPath = "RaspberryPi3.private.key"
 myAWSIoTMQTTClient = None
+
+#MQTT初期化
 def init_mqtt():
     print "init mqtt"
     # Configure logging
@@ -49,6 +51,7 @@ def init_mqtt():
 
     return myAWSIoTMQTTClient
 
+#AWSへ接続
 def connect_aws(myAWSIoTMQTTClient):
     print "connect aws"
     # Connect and subscribe to AWS IoT
@@ -58,6 +61,7 @@ def connect_aws(myAWSIoTMQTTClient):
 
     return myAWSIoTMQTTClient
 
+#MQTTでメッセージ送信
 def sendmsg(myAWSIoTMQTTClient):
     print "send message"
     # Publish to the same topic in a loop forever
